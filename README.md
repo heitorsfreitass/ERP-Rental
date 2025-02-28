@@ -30,22 +30,30 @@ This is a simple ERP (Enterprise Resource Planning) system designed for Rental e
     git clone https://github.com/your-username/ERP-Rental.git
     cd ERP-Rental
 2. **Install PHP dependencies**:
+    ```bash
     composer install
 3. **Install JavaScript dependencies**:
+    ```bash
     npm install
     npm run dev
 4. **Create a *.env* file**:
+    ```bash
     cp .env.example .env
     Update the *.env* file with your database credentials and other settings.
 5. **Generate an application key**:
+    ```bash
     php artisan key:generate
 6. **Run migrations to set up the database**:
+    ```bash
     php artisan migrate
 7. **Seed the database (optional)**:
+    ```bash
     php artisan db:seed
 8. **Start the development server**:
+    ```bash
     php artisan serve
 9. **Access the application in your browser**:
+    ```bash
     http://localhost:8000
 
 ## Usage
