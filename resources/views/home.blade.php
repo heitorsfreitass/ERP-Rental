@@ -4,7 +4,6 @@
     <div class="container">
         <h1 class="text-center my-4">Welcome to the ERP</h1>
 
-        <!-- Quick Stats -->
         <div class="row mb-4">
             <div class="col-md-3">
                 <div class="card text-center">
@@ -40,9 +39,7 @@
             </div>
         </div>
 
-        <!-- Feature Cards -->
         <div class="row">
-            <!-- Clients Card -->
             <div class="col-md-3 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -53,7 +50,6 @@
                 </div>
             </div>
 
-            <!-- Equipment Card -->
             <div class="col-md-3 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -64,7 +60,6 @@
                 </div>
             </div>
 
-            <!-- Contracts Card -->
             <div class="col-md-3 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -75,7 +70,6 @@
                 </div>
             </div>
 
-            <!-- Maintenance Logs Card -->
             <div class="col-md-3 mb-4">
                 <div class="card text-center">
                     <div class="card-body">
@@ -103,23 +97,20 @@
     </div>
 
     <script>
-    // Register the datalabels plugin globally
     Chart.register(ChartDataLabels);
 
-    // Fetch equipment stats via AJAX
     fetch('/statistics/equipment')
         .then(response => response.json())
         .then(data => {
-            // Set default font size for the chart
             Chart.defaults.font.size = 16;
 
             const ctx = document.getElementById('equipmentStatsChart').getContext('2d');
             new Chart(ctx, {
                 type: 'pie',
                 data: {
-                    labels: data.labels, // Labels for the legend
+                    labels: data.labels, 
                     datasets: [{
-                        data: data.data, // Data values
+                        data: data.data, 
                         backgroundColor: [
                             'rgba(75, 192, 192, 0.2)', // Available
                             'rgba(255, 99, 132, 0.2)', // Rented
@@ -145,37 +136,32 @@
                         },
                         title: {
                             display: true,
-                            text: 'Equipment Status', // Chart title
+                            text: 'Equipment Status', 
                             font: {
                                 size: 20
                             }
                         },
-                        // Configure the datalabels plugin
                         datalabels: {
-                            color: '#000', // Label text color
+                            color: '#000', 
                             font: {
-                                weight: 'bold', // Make labels bold
-                                size: 16 // Label font size
+                                weight: 'bold', 
+                                size: 16 
                             },
                             formatter: (value, context) => {
-                                // Display the label and value on the chart
                                 return `${context.chart.data.labels[context.dataIndex]}\n${value}`;
                             }
                         }
                     }
                 },
-                plugins: [ChartDataLabels] // Register the plugin
+                plugins: [ChartDataLabels] 
             });
         });
 
-    // Fetch financial stats via AJAX
     fetch('/statistics/financial')
         .then(response => response.json())
         .then(data => {
-            // Set default font size for the charts
             Chart.defaults.font.size = 14;
 
-            // Profit Margins Chart
             const profitMarginsCtx = document.getElementById('profitMarginsChart').getContext('2d');
             new Chart(profitMarginsCtx, {
                 type: 'bar',
@@ -225,7 +211,6 @@
                 plugins: [ChartDataLabels]
             });
 
-            // Outstanding Payments Chart
             const outstandingPaymentsCtx = document.getElementById('outstandingPaymentsChart').getContext('2d');
             new Chart(outstandingPaymentsCtx, {
                 type: 'bar',
@@ -241,7 +226,7 @@
                 },
                 options: {
                     responsive: true,
-                    indexAxis: 'y', // Horizontal bar chart
+                    indexAxis: 'y', 
                     plugins: {
                         legend: {
                             display: false,
