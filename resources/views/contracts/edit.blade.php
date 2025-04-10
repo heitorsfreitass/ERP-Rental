@@ -40,6 +40,6 @@
                 <option value="completed" {{ $contract->status == 'completed' ? 'selected' : '' }}>Completed</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary mt-2">Update</button>
     </form>
 @endsection
