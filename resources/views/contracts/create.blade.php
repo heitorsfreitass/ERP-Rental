@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="mb-3">
+        <a href="{{ url()->previous() }}" style="text-decoration: none; color: #000;font-size:20px;" class="hover-link-effect">
+            <i class="fa fa-arrow-left"></i> Back
+        </a>
+    </div>
     <h1>Create New Contract</h1>
     <form action="{{ route('contracts.store') }}" method="POST">
         @csrf
@@ -39,6 +44,6 @@
                 <option value="completed">Completed</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary mt-3">Create</button>
     </form>
 @endsection

@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="mb-3">
+        <a href="{{ url()->previous() }}" style="text-decoration: none; color: #000;font-size:20px;" class="hover-link-effect">
+            <i class="fa fa-arrow-left"></i> Back
+        </a>
+    </div>
     <h1>Edit Client</h1>
     <form action="{{ route('clients.update', $client->id) }}" method="POST">
         @csrf
@@ -21,6 +26,6 @@
             <label for="address">Address</label>
             <input type="text" name="address" id="address" class="form-control" value="{{ $client->address }}" required>
         </div>
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary mt-3">Update</button>
     </form>
 @endsection

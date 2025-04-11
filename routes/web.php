@@ -10,14 +10,8 @@ use App\Http\Controllers\ContractController;
 use App\Http\Controllers\MaintenanceLogController;
 use App\Http\Controllers\StatisticsController;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
-// Public Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Authentication Routes (handled by Breeze)
 Auth::routes();
 
 // Protected Routes (only for admins)

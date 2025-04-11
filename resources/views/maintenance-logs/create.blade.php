@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="mb-3">
+        <a href="{{ url()->previous() }}" style="text-decoration: none; color: #000;font-size:20px;" class="hover-link-effect">
+            <i class="fa fa-arrow-left"></i> Back
+        </a>
+    </div>
     <h1>Create New Maintenance Log</h1>
     <form action="{{ route('maintenance-logs.store') }}" method="POST">
         @csrf
@@ -24,6 +29,6 @@
             <label for="cost">Cost</label>
             <input type="number" name="cost" id="cost" class="form-control" step="0.01" required>
         </div>
-        <button type="submit" class="btn btn-primary">Create</button>
+        <button type="submit" class="btn btn-primary mt-3">Create</button>
     </form>
 @endsection

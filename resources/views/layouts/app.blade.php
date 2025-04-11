@@ -243,6 +243,15 @@
             padding: 2rem;
             background-color: white;
         }
+
+        .hover-link-effect {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .hover-link-effect:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 
@@ -314,6 +323,7 @@
         </button>
 
         <div class="ms-auto d-flex align-items-center">
+            
             <div class="dropdown">
                 <button class="btn dropdown-toggle d-flex align-items-center" type="button" id="userDropdown" data-bs-toggle="dropdown">
                     <img src="https://ui-avatars.com/api/?name={{ urlencode(auth()->user()->name) }}&background=4361ee&color=fff"
